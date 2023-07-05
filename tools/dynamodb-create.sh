@@ -1,3 +1,5 @@
+#!/bin/bash
+
 aws dynamodb create-table --table-name pizza-orders \
     --attribute-definitions AttributeName=orderId,AttributeType=S \
     --key-schema AttributeName=orderId,KeyType=HASH \

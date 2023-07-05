@@ -4,6 +4,7 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 const rp = require('minimal-request-promise');
 
 function createOrder(req) {
+    console.log('createOrder', req);
     if (!req || !req.pizza || !req.address)
         throw new Error('To order pizza please provide pizza type and address where pizza should be delivered');
 
