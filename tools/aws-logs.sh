@@ -4,8 +4,7 @@
 
 MSYS_NO_PATHCONV=1 aws logs \
     filter-log-events \
-    --filter-pattern 'createOrder' \
+    --filter-pattern 'deleteOrder' \
     --log-group-name /aws/lambda/pizza-api \
-    --query 'events[0].message' \
     --region us-east-1 \
     --output text

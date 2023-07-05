@@ -1,0 +1,5 @@
+{
+    "myurl":"https://5pnstc4cyk.execute-api.us-east-1.amazonaws.com/latest",
+    "some_like_it_hot_delivery":"https://some-like-it-hot.effortless-serverless.com",
+    "cognito_user_pool_arn": "arn:aws:cognito-idp:us-east-1:397881640223:userpool/us-east-1_Qpw0CUpsf"
+}
