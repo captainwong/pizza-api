@@ -1,4 +1,6 @@
-const AWS = require('aws-sdk');
+
+const AWSXray = require('aws-xray-sdk-core');
+const AWS = AWSXray.captureAWS(require('aws-sdk'));
 const docClient = new AWS.DynamoDB.DocumentClient();
 
 function updateDeliveryStatus(req) {
