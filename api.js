@@ -9,6 +9,7 @@ const updateOrder = require('./handlers/update-order');
 const deleteOrder = require('./handlers/delete-order');
 const getOrders = require('./handlers/get-orders');
 const updateDeliveryStatus = require('./handlers/update-delivery-status');
+const generatePresignedUrl = require('./handlers/generate-presigned-url');
 
 const config = require('./config.json');
 
@@ -40,6 +41,7 @@ api.post('/orders', (req) => {
 }, {
     success: 201,
     error: 400,
+}, {
     cognitoAuthorizer: 'userAuthentication',
 });
 
@@ -47,6 +49,7 @@ api.put('orders/{id}', (req) => {
     return updateOrder(req.pathParams.id, req.body);
 }, {
     error: 400,
+}, {
     cognitoAuthorizer: 'userAuthentication',
 });
 
@@ -55,13 +58,22 @@ api.delete('orders/{id}', (req) => {
 }, {
     success: 200,
     error: 400,
+}, {
     cognitoAuthorizer: 'userAuthentication',
 });
 
 api.post('/delivery', req => updateDeliveryStatus(req.body), {
     success: 200,
     error: 400,
+}, {
     cognitoAuthorizer: 'userAuthentication',
 });
+
+api.get('/upload-url', () => generatePresignedUrl(), {
+    error: 400,
+}, {
+    cognitoAuthorizer: 'userAuthentication',
+});
+
 
 module.exports = api;
